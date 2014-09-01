@@ -19,7 +19,7 @@ public class DriveForTime extends CommandBase {
     // moving: true = continue moving | false = stop moving
     public DriveForTime( double sec, double vel, boolean moving ) {
         requires(drivetrain);
-        setTimeout(sec);
+        setTimeout(sec); // Stop command after timeout.
         speed = vel;
         keepMoving = moving;
     }
@@ -30,7 +30,7 @@ public class DriveForTime extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        drivetrain.tankDrive(speed,speed);
+        drivetrain.tankDrive(speed,speed); // Drive at speed while running.
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -40,6 +40,8 @@ public class DriveForTime extends CommandBase {
 
     // Called once after isFinished returns true
     protected void end() {
+        
+        // if keepMoving is true then stop.
         if (keepMoving) {
             drivetrain.tankDrive(0.0, 0.0);
         }

@@ -14,7 +14,6 @@ public class DriveWithJoysticks extends CommandBase {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
         requires(drivetrain);
-        // System.out.println("Class name is [" + this.getClass().getName() + "]");
     }
 
     // Called just before this Command runs the first time
@@ -23,19 +22,13 @@ public class DriveWithJoysticks extends CommandBase {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+        // when driving and not reversing, pass joystick values to drivetrain subsystem.
         if (oi.weAreDriving()) {
-           
           if (oi.weAreReversing()){
               drivetrain.reverseTankDrive(oi.getLeftSpeed()*-1.0,oi.getRightSpeed());
-          }
-           else
-          {
+          } else {
               drivetrain.tankDrive(oi.getLeftSpeed(),oi.getRightSpeed());
           }
-        }
-        else {
-            drivetrain.climb(oi.getRightSpeed());
-        
         }
     }
     // Make this return true when this Command no longer needs to run execute()

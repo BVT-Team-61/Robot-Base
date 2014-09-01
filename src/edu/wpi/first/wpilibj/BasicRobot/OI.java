@@ -12,31 +12,40 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 public class OI {   
 
    private static boolean reverseDriveMode=false ;
-    
+   
+   // Define Joystick Objects
    Joystick jLeft = new Joystick(1);    
    Joystick jRight = new Joystick(2); 
    
+   // Define Joystick Buttons
    Button forwardButton = new JoystickButton (jRight,2);
    Button reverseButton = new JoystickButton (jRight,1);
    
+    // Placeholder method. Does nothing yet.
     public boolean weAreDriving() {
         return true;
     }
+    
+    // Determines if robot in reverse.
     public boolean weAreReversing (){
-        
+        // If the reverse button is hit, then we are reversing.
         if (reverseButton.get()) {
             reverseDriveMode = false;
         }
-    else if (forwardButton.get()) {
-        reverseDriveMode= true;
-    }
-    return reverseDriveMode ;
+        // If the forward button is hit, then we are not reversing.
+        else if (forwardButton.get()) {
+            reverseDriveMode= true;
+        }
+        // Otherwise, just return whatever it was before
+        return reverseDriveMode ;
     }
     
+    // Method to return the left joystick Y Axis.
     public double getLeftSpeed() {
         return (jLeft.getY()); 
     }
     
+    // Same thing but for the right joystick Y Axis.
     public double getRightSpeed() {
         return (jRight.getY());
     }

@@ -68,7 +68,7 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     /**
-     * Reversed tankDrive.
+     * Reversed controls tankDrive.
      * @param left Right motor value
      * @param right Left motor value
      */
@@ -78,29 +78,17 @@ public class DriveTrain extends PIDSubsystem {
     }
     
     /**
-     * Climbs the robot.
-     * @param right Arm movement
-     */
-    public void climb(double right) {
-        //System.out.println("joystick value = " + right);
-        moveLeftMotor(right);
-        moveRightMotor(right);
-    }
-    /**
      * 
      * @param speed 
      */
     
     private void moveLeftMotor(double speed)
     {
-        //leftMotor.set(speed*-1.0);
-      
        if (speed < 0.0 )
        { 
            leftMotor.set (speed*-1.0);
                
-       }
-               
+       }   
         else if (speed > 0.0)
         {
             leftMotor.set(0.0);
@@ -114,13 +102,10 @@ public class DriveTrain extends PIDSubsystem {
     
     private void moveRightMotor(double speed)
     {
-      //rightMotor.set(speed);
-        //System.out.println("limit = " + bottomLimit.getSmartDashboardType());      
-        if (speed< 0.0)
+        if (speed < 0.0)
         {
             rightMotor.set(speed);
         }
-       
         else if (speed > 0.0)
         {
             rightMotor.set(0.0);
@@ -129,7 +114,6 @@ public class DriveTrain extends PIDSubsystem {
         {
             rightMotor.set(speed);
         }
-        
     }
 
 }

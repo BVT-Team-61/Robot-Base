@@ -54,7 +54,7 @@ public class BasicRobot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-        autonomousCommand.start();
+        //autonomousCommand.start();
         
         // Ouput status info to driver station.
         DriverStationLCD.getInstance().println(DriverStationLCD.Line.kUser3, 2, "Started Autonomous.");

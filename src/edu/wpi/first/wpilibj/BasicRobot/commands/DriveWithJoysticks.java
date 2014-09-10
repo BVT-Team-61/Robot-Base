@@ -6,7 +6,7 @@ package edu.wpi.first.wpilibj.BasicRobot.commands;
 
 /**
  *
- * @author Frank 
+ * @author Team-61 
  */
 public class DriveWithJoysticks extends CommandBase {
         
@@ -25,7 +25,7 @@ public class DriveWithJoysticks extends CommandBase {
         // when driving and not reversing, pass joystick values to drivetrain subsystem.
         if (oi.weAreDriving()) {
           if (oi.weAreReversing()){
-              drivetrain.reverseTankDrive(oi.getLeftSpeed()*-1.0,oi.getRightSpeed());
+              drivetrain.reverseTankDrive(oi.getLeftSpeed(),oi.getRightSpeed());
           } else {
               drivetrain.tankDrive(oi.getLeftSpeed(),oi.getRightSpeed());
           }

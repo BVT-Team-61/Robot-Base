@@ -4,6 +4,7 @@ package edu.wpi.first.wpilibj.BasicRobot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.BasicRobot.RobotMap;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -14,8 +15,8 @@ public class OI {
    private static boolean reverseDriveMode=false ;
    
    // Define Joystick Objects
-   Joystick jLeft = new Joystick(1);    
-   Joystick jRight = new Joystick(2); 
+   Joystick jLeft = new Joystick(RobotMap.leftStick);    
+   Joystick jRight = new Joystick(RobotMap.rightStick); 
    
    // Define Joystick Buttons
    Button forwardButton = new JoystickButton (jRight,2);

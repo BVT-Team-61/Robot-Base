@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj.command.PIDSubsystem;
 
 /**
  *
- * @author FrankAdmin
+ * @author Team-61
  */
 public class DriveTrain extends PIDSubsystem {
     
@@ -21,22 +21,13 @@ public class DriveTrain extends PIDSubsystem {
     private static final double Ki = 0.0;
     private static final double Kd = 0.0;
     
-    //private RobotDrive drive = new RobotDrive(RobotMap.leftMotor,RobotMap.rightMotor);
-    
     private SpeedController leftMotor = new Victor(RobotMap.leftMotor);
     private SpeedController rightMotor = new Victor(RobotMap.rightMotor);
-    
-    // private DigitalInput leftTopLimit = new DigitalInput(RobotMap.leftTopLimitChannel);
-    // private DigitalInput leftBottomLimit = new DigitalInput(RobotMap.leftBottomLimitChannel);
 
     // Initialize your subsystem here
     public DriveTrain() {
         super("DriveTrain", Kp, Ki, Kd);
 
-        // Use these to get going:
-        // setSetpoint() -  Sets where the PID controller should move the system
-        //                  to
-        // enable() - Enables the PID controller.
         
     }
     
@@ -63,18 +54,18 @@ public class DriveTrain extends PIDSubsystem {
      * @param right Right motor value
      */
     public void tankDrive(double left, double right) {
-        leftMotor.set(left*-1.0);
-        rightMotor.set(right);
+        moveLeftMotor(left);
+        moveRightMotor(right);
     }
     
     /**
      * Reversed controls tankDrive.
-     * @param left Right motor value
-     * @param right Left motor value
+     * @param right Right motor value
+     * @param left Left motor value
      */
-    public void reverseTankDrive(double left, double right) {
-        leftMotor.set(right*-1.0);
-        rightMotor.set(left);
+    public void reverseTankDrive(double right, double left) {
+        moveRightMotor(right);
+        moveLeftMotor(left);
     }
     
     /**
@@ -84,36 +75,17 @@ public class DriveTrain extends PIDSubsystem {
     
     private void moveLeftMotor(double speed)
     {
-       if (speed < 0.0 )
-       { 
-           leftMotor.set (speed*-1.0);
-               
-       }   
-        else if (speed > 0.0)
-        {
-            leftMotor.set(0.0);
-        }
-        else
-        {
-            leftMotor.set(speed*-1.0);
-        }
-        
+        leftMotor.set(speed);
     }
+    
+    /**
+     * 
+     * @param speed 
+     */
     
     private void moveRightMotor(double speed)
     {
-        if (speed < 0.0)
-        {
-            rightMotor.set(speed);
-        }
-        else if (speed > 0.0)
-        {
-            rightMotor.set(0.0);
-        }
-        else
-        {
-            rightMotor.set(speed);
-        }
+        rightMotor.set(speed);
     }
 
 }

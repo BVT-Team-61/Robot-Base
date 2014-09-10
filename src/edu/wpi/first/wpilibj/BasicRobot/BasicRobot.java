@@ -28,7 +28,7 @@ public class BasicRobot extends IterativeRobot {
     Command autonomousCommand;
 
     public final String teamNo = "  61";
-    public final String versionNo = "2014-09-01.01";
+    public final String versionNo = "2014-09-09.01";
             
     /**
      * This function is run when the robot is first started up and should be

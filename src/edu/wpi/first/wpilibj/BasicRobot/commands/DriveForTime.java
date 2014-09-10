@@ -7,7 +7,7 @@ package edu.wpi.first.wpilibj.BasicRobot.commands;
 
 /**
  *
- * @author 2015-15
+ * @author Team-61
  */
 public class DriveForTime extends CommandBase {
     

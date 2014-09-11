@@ -75,6 +75,7 @@ public class DriveTrain extends PIDSubsystem {
     
     private void moveLeftMotor(double speed)
     {
+        speed = speed*-1.0;
         leftMotor.set(speed);
     }
     
